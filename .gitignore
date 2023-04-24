@@ -1,0 +1,4 @@
+# .gitignore 
+# Project files and directories 
+./BOOKSTORE/static/
+./BOOKSTORE/media/
