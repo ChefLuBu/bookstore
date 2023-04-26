@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import home
+from .views import BookListView
 
 app_name = 'books'
 
@@ -8,7 +9,8 @@ app_name = 'books'
 #The route parameter is the URL that the user will type in the browser.
 #The view parameter is the view function that will be called when the user
 urlpatterns = [
-    path('books/', home),
+    path('', home),
+    path('books/list', BookListView.as_view(), name='book-list')
 ]
 
 
