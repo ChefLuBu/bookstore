@@ -1,6 +1,24 @@
-{% for object in object_list %} {% comment%} access records from model
-(object_list) one at a time using for loop {% endcomment%} {{object}} {%
-comment%} “object” refers to one record in the list {% endcomment%}
+<h1>Books' list</h1>
+{% comment%} HTML tag for heading {% endcomment%}
 
-<br />
-{% endfor %}
+<table border="1" cellpadding="5" cellspacing="5">
+  {% comment%} start of table {% endcomment%}
+  <tr>
+    {% comment%} the  tag adds a new row {% endcomment%}
+  </tr>
+  <tr>
+    <td>Books' Titles</td>
+    {% comment%} the
+    <td>tag adds a column {% endcomment%}</td>
+    <td>Books' Images</td>
+  </tr>
+  {% for object in object_list %} {% comment%} now go through the list
+  element-by-element {% endcomment%}
+  <tr>
+    <td><a href="{{object.get_absolute_url}}"> {{object.name}} </a></td>
+    {% comment%} print the name of book {% endcomment%}
+    <td><img src="{{object.pic.url}}" width="150" height="200" /></td>
+    {% comment%} display the picture of book {% endcomment%}
+  </tr>
+  {% endfor %}
+</table>

@@ -46,3 +46,10 @@ class BookModelTest(TestCase):
 
         expected_object_name = format(book.price, '.2f')
         self.assertEquals(expected_object_name, '25.00')
+
+    def test_get_absolute_url(self):
+        book = Book.objects.get(id=1)
+        #get_absolute_url() returns a URL string that would be 
+        #used to display a specific book
+        #and load the URL /list/1/ in the browser.
+        self.assertEqual(book.get_absolute_url(), '/books/list/1/')
